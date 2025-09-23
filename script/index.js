@@ -172,12 +172,23 @@ const displayCart = (carts) => {
             class="flex justify-between items-center bg-[#F0FDF4] p-2 rounded-lg my-2 gap-4"
           >
             <div>
-              <h1 class="font-semibold">${cart.treeName}</h1>
-              <p class="font-light">৳${cart.treePrice} X 1</p>
+              <h1 class="font-semibold tree-name">${cart.treeName}</h1>
+              <p class="font-light">৳<span class="tree-price">${cart.treePrice}</span> X 1</p>
             </div>
-            <button>❎</button>
+            <button onclick="removeCart(this)" class="">❎</button>
           </div>
     `;
     cartContainer.append(newCart);
   }
+};
+
+const removeCart = (btn) => {
+  const item = btn.parentNode;
+  const treeName = item.querySelector(".tree-name").innerText;
+  const treePrice = Number(item.querySelector(".tree-price").innerText);
+  cart = cart.filter((item) => item.treeName != treeName);
+  total = 0;
+  cart.forEach((item) => (total += item.treePrice));
+  displayCart(cart);
+  displayTotal(total);
 };
