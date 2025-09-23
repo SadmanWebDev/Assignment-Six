@@ -104,42 +104,6 @@ const displayPlantDetails = (details) => {
 let cart = [];
 let total = 0;
 
-// const loadAllTrees = (id) => {
-//   const url = `https://openapi.programming-hero.com/api/plants`;
-//   fetch(url)
-//     .then((res) => res.json())
-//     .then((data) => displayTreesContainer(data.plants));
-// };
-
-// const displayCategoryPlants = (trees) => {
-//   const treesContainer = document.getElementById("trees-container");
-//   treesContainer.innerHTML = "";
-//   trees.forEach((tree) => {
-//     const treeCard = document.createElement("div");
-//     treeCard.innerHTML = `
-//     <div class="bg-white p-5 space-y-2 gap-7 rounded-lg">
-//           <img class="rounded-lg" src="${tree.image}" alt="" />
-//           <h1 class="font-bold text-xl">${tree.name}</h1>
-//           <p>
-//             ${tree.description}
-//           </p>
-//           <div class="flex justify-between items-center">
-//             <span class="bg-[#DCFCE7] text-[#15803D] rounded-full btn px-3 py-1"
-//               >${tree.category}</span
-//             >
-//             <p class="font-bold">৳${tree.price}</p>
-//           </div>
-//           <button class="btn w-full rounded-full bg-[#15803D] text-white">
-//             Add to Cart
-//           </button>
-//         </div>
-//       </div>
-//     `;
-//     treesContainer.append(treeCard);
-//   });
-//   //   console.log(trees);
-// };
-
 loadCategories();
 loadTreesContainer();
 
