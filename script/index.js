@@ -43,7 +43,7 @@ const displayCategories = (categories) => {
     const ctgDiv = document.createElement("div");
     ctgDiv.innerHTML = `
     <button id="cat-btn-${category.id}" onclick = "loadCategoryPlants(${category.id})"
-    class="btn btn-outline hover:text-white hover:bg-[#15803D] border-0 rounded-full w-full justify-center md:justify-start btn-category">
+    class="btn btn-outline hover:text-white hover:bg-[#4fa06c] border-0 rounded-full w-full justify-center md:justify-start btn-category">
     ${category.category_name}
     </button>
 `;
@@ -58,10 +58,10 @@ const displayTreesContainer = (trees) => {
   trees.forEach((tree) => {
     const card = document.createElement("div");
     card.innerHTML = `
-    <img onclick = "loadPlantDetails(${tree.id})" class=" max-h-[250px] w-full object-cover rounded-lg" src="${tree.image}" alt="" />
+    <img class=" max-h-[250px] w-full object-cover rounded-lg" src="${tree.image}" alt="" />
         <div class="bg-white p-5 space-y-2 rounded-lg">
           
-          <h1 class="tree-name font-bold text-xl">${tree.name}</h1>
+          <h1 onclick = "loadPlantDetails(${tree.id})" class="tree-name font-bold text-xl">${tree.name}</h1>
           <p>
             ${tree.description}
           </p>
@@ -103,9 +103,6 @@ const displayPlantDetails = (details) => {
 
 let cart = [];
 let total = 0;
-
-loadCategories();
-loadTreesContainer();
 
 const addToCart = (btn) => {
   const card = btn.parentNode;
@@ -156,3 +153,6 @@ const removeCart = (btn) => {
   displayCart(cart);
   displayTotal(total);
 };
+
+loadCategories();
+loadTreesContainer();
